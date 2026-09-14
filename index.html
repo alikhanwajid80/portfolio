@@ -386,11 +386,48 @@
 
   footer{
     border-top:1px solid var(--card-border);
-    padding:32px 0 50px;
-    color:var(--ink-dim);
-    font-size:0.82rem;
+    padding:44px 0 56px;
+  }
+  .footer-inner{
     display:flex;
     justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:28px;
+  }
+  .footer-main{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .footer-location{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.6rem;
+    color:var(--ink);
+  }
+  .footer-status{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.2rem;
+    color:var(--gold);
+  }
+  .footer-cta{
+    font-family:'Inter', sans-serif;
+    font-size:0.85rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--bg);
+    background:var(--gold);
+    padding:16px 30px;
+    border:1px solid var(--gold);
+    white-space:nowrap;
+    transition:background 0.25s ease, color 0.25s ease;
+  }
+  .footer-cta:hover{
+    background:transparent;
+    color:var(--gold);
   }
 
   @media (max-width:760px){
@@ -405,6 +442,8 @@
     .contact-links{grid-template-columns:1fr;}
     .hero-meta{gap:32px;}
     footer{flex-direction:column;gap:8px;}
+    .footer-inner{flex-direction:column;align-items:flex-start;}
+    .footer-cta{width:100%;text-align:center;}
   }
 </style>
 </head>
@@ -616,9 +655,12 @@
 </section>
 
 <footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;">
-    <span>Wajid Ali Khan — Doha, Qatar</span>
-    <span>Available for freelance work</span>
+  <div class="wrap footer-inner">
+    <div class="footer-main">
+      <div class="footer-location">Wajid Ali Khan — Doha, Qatar</div>
+      <div class="footer-status">Available for freelance work</div>
+    </div>
+    <a class="footer-cta" href="#contact">Book a Project →</a>
   </div>
 </footer>
 
