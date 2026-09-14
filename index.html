@@ -430,6 +430,72 @@
     color:var(--gold);
   }
 
+  /* ---------- BOOK A PROJECT FORM ---------- */
+  .book-form{
+    max-width:640px;
+  }
+  .form-group{
+    margin-bottom:30px;
+  }
+  .form-group label{
+    display:block;
+    font-size:0.76rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--gold-dim);
+    margin-bottom:12px;
+  }
+  .form-group input,
+  .form-group textarea{
+    width:100%;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid var(--card-border);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:1.02rem;
+    padding:10px 2px;
+    outline:none;
+    transition:border-color 0.25s ease;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder{
+    color:var(--ink-dim);
+    opacity:0.6;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus{
+    border-color:var(--gold);
+  }
+  .form-group textarea{
+    resize:vertical;
+    min-height:120px;
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+  }
+  .form-submit{
+    margin-top:8px;
+    font-family:'Inter', sans-serif;
+    background:var(--gold);
+    color:var(--bg);
+    border:1px solid var(--gold);
+    padding:16px 34px;
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    cursor:pointer;
+    transition:background 0.25s ease, color 0.25s ease;
+  }
+  .form-submit:hover{
+    background:transparent;
+    color:var(--gold);
+  }
+  .form-note{
+    margin-top:16px;
+    font-size:0.82rem;
+    color:var(--ink-dim);
+  }
+
   @media (max-width:760px){
     nav{padding:18px 20px;}
     .nav-links{display:none;}
@@ -455,6 +521,7 @@
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#about">About</a>
+      <a href="#book">Book</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -634,6 +701,35 @@
   </div>
 </section>
 
+<section id="book">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Book a project</h2>
+      <p>Send the brief — I'll reply within a day to confirm dates and scope.</p>
+    </div>
+    <form class="book-form" id="bookForm">
+      <div class="form-group">
+        <label for="clientName">Client Name</label>
+        <input type="text" id="clientName" name="clientName" required>
+      </div>
+      <div class="form-group">
+        <label for="clientContact">Client Contact</label>
+        <input type="text" id="clientContact" name="clientContact" placeholder="Email or phone number" required>
+      </div>
+      <div class="form-group">
+        <label for="projectExplanation">Explanation of Project</label>
+        <textarea id="projectExplanation" name="projectExplanation" placeholder="What are you shooting or editing? Location, date, deliverables." required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="clientBudget">Client Budget</label>
+        <input type="text" id="clientBudget" name="clientBudget" placeholder="e.g. QAR 5,000 – 10,000">
+      </div>
+      <button type="submit" class="form-submit">Send Project Details →</button>
+      <p class="form-note">This opens your email app with the details filled in, addressed to Wajid.</p>
+    </form>
+  </div>
+</section>
+
 <section id="contact" class="contact" style="background-image:url('assets/bts-vintage.jpg');">
   <div class="wrap">
     <h2>Have a shoot or an edit coming up? Let's talk.</h2>
@@ -660,9 +756,30 @@
       <div class="footer-location">Wajid Ali Khan — Doha, Qatar</div>
       <div class="footer-status">Available for freelance work</div>
     </div>
-    <a class="footer-cta" href="#contact">Book a Project →</a>
+    <a class="footer-cta" href="#book">Book a Project →</a>
   </div>
 </footer>
+
+<script>
+  document.getElementById('bookForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('clientName').value.trim();
+    var contact = document.getElementById('clientContact').value.trim();
+    var explanation = document.getElementById('projectExplanation').value.trim();
+    var budget = document.getElementById('clientBudget').value.trim() || 'Not specified';
+
+    var subject = 'New Project Inquiry — ' + name;
+    var body =
+      'Client Name: ' + name + '\n' +
+      'Client Contact: ' + contact + '\n' +
+      'Client Budget: ' + budget + '\n\n' +
+      'Project Details:\n' + explanation;
+
+    window.location.href = 'mailto:alikhanwajid80@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+  });
+</script>
 
 </body>
 </html>
