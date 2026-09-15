@@ -536,7 +536,7 @@
       <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="#book">Book</a>
+      <a href="#book">Quote</a>
     </div>
   </nav>
 </header>
@@ -738,16 +738,16 @@
 <section id="book">
   <div class="wrap">
     <div class="section-head">
-      <h2>Book a project</h2>
+      <h2>Get a quote</h2>
       <p>Send the brief — I'll reply within a day to confirm dates and scope.</p>
     </div>
     <form class="book-form" id="bookForm">
       <div class="form-group">
-        <label for="clientName">Client Name</label>
+        <label for="clientName">Name</label>
         <input type="text" id="clientName" name="clientName" required>
       </div>
       <div class="form-group">
-        <label for="clientContact">Client Contact</label>
+        <label for="clientContact">Contact</label>
         <input type="text" id="clientContact" name="clientContact" placeholder="Email or phone number" required>
       </div>
       <div class="form-group">
@@ -755,7 +755,7 @@
         <textarea id="projectExplanation" name="projectExplanation" placeholder="What are you shooting or editing? Location, date, deliverables." required></textarea>
       </div>
       <div class="form-group">
-        <label for="clientBudget">Client Budget</label>
+        <label for="clientBudget">Budget</label>
         <input type="text" id="clientBudget" name="clientBudget" placeholder="e.g. QAR 5,000 – 10,000">
       </div>
       <button type="submit" class="form-submit">Send Project Details →</button>
@@ -771,7 +771,7 @@
       <div class="footer-location">Wajid Ali Khan — Doha, Qatar</div>
       <div class="footer-status">Available for freelance work</div>
     </div>
-    <a class="footer-cta" href="#book">Book a Project →</a>
+    <a class="footer-cta" href="#book">Get a Quote →</a>
   </div>
 </footer>
 
@@ -785,9 +785,9 @@
 
     var subject = 'New Project Inquiry — ' + name;
     var body =
-      'Client Name: ' + name + '\n' +
-      'Client Contact: ' + contact + '\n' +
-      'Client Budget: ' + budget + '\n\n' +
+      'Name: ' + name + '\n' +
+      'Contact: ' + contact + '\n' +
+      'Budget: ' + budget + '\n\n' +
       'Project Details:\n' + explanation;
 
     window.location.href = 'mailto:alikhanwajid80@gmail.com'
